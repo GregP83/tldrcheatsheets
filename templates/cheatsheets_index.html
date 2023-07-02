@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>;TLDR cheat-sheets</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/gppostitnote.js') }}"></script>
+</head>
+<body>
+  
+  <gp-postit-note degrees="3" title="Welcome!!!" style="margin-left:100px">
+    <h5>
+      Hello, here is the place for those who don't want to spend 86 hours watching a course just to find out:
+      
+      <ul style="text-align: left;">
+        <li>how to make round corners in CSS</li>
+        <li>how to make HelloWord app in Python Flask</li>
+        <li>and so on... </li>
+      </ul>
+      ...just short and sweet <code>code snippets.</code><br/> Smart people will figure it out.
+    </h5>
+  </gp-postit-note>
+  <br/><br/>{{content | safe}}
+  <br/><br/>
+  <div class="formdiv">
+    <form method="POST">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title"><br><br>
+      <label for="content">Content:</label>
+      <textarea id="content" name="content" rows="4" cols="30"></textarea><br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>
