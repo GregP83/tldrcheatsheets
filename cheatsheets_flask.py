@@ -12,9 +12,7 @@ def get_cheatsheets():
     cursor.execute(query)
     rows = cursor.fetchall()
     for row in rows:
-        angle = row[0]  # Extract angle
-        title = row[1]  # Extract title
-        content = row[2]  # Extract content
+        angle, title, content = row[0], row[1], row[2]
         res += f"\r\n  <gp-postit-note degrees=\"{str(angle)}\" title=\"{title}\">\r\n    {content}\r\n  </gp-postit-note>"
     conn.close()
     return res
