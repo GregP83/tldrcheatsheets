@@ -1,3 +1,58 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.main-header {
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.searcher {
+    margin: 10px auto 0px auto;
+    padding: 0;
+}
+
+.searcher form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searcher input[type="text"] {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    font-size: 15px;
+    color: #686868;
+    outline: none;
+}
+
+.searcher button[type="submit"] {
+    padding: 8px 16px 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 0 20px 20px 0;
+    background-color: #fff;
+    border-left: #fff;
+    color: #9c9c9c;
+    cursor: pointer;
+    height: 35px;
+}
+
+.searecher button[type="submit"]:hover {
+    color: #686868;
+}
+
+.fa-search {
+    font-size: 16px;
+}
+
 .formdiv {
     padding: 25px;
     border-radius: 5px;

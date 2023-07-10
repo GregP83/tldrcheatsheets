@@ -1,11 +1,29 @@
 <html>
 <head>
   <title>TL;DR cheat-sheets</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-...some-hash-value..." crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
   <script src="{{ url_for('static', filename='js/gppostitnote.js') }}"></script>
 </head>
 <body>
-  
+  <header class="main-header">
+    <div class="searcher">
+      <form method="GET">
+        <label for="search">
+          <input type="text" id="search" name="search" placeholder="Search...">
+        </label>
+        <button type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+    <!-- <div class="add-new">
+      <button>
+        <i class="fas fa-search"></i>
+      </button>
+    </div> -->
+  </header>
+  <br/><br/><br/>
   <gp-postit-note degrees="-2" title="Welcome!!!" style="margin-left:100px">
     <h5>
       This is the place for those who don't want to spend 86 hours watching a course just to find out:
