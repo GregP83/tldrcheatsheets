@@ -32,6 +32,7 @@ body {
     font-size: 15px;
     color: #686868;
     outline: none;
+    height: 36px;
 }
 
 .searcher button[type="submit"] {
@@ -42,7 +43,7 @@ body {
     border-left: #fff;
     color: #9c9c9c;
     cursor: pointer;
-    height: 35px;
+    height: 36px;
 }
 
 .searecher button[type="submit"]:hover {
@@ -51,6 +52,13 @@ body {
 
 .fa-search {
     font-size: 16px;
+}
+
+.add-note {
+    display: fixed;
+    top: 20px;
+    right: 30px;
+    z-index: 2;
 }
 
 .formdiv {
