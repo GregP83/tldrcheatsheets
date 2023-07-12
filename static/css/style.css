@@ -6,13 +6,15 @@ body {
 
 .main-header {
     position: fixed;
+    display: flex;
+    align-items: center;
     height: 60px;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: rgba(255, 255, 255, 0.5);
-}
+    background-color: rgba(255, 255, 255, 0.8);
+  }
 
 .searcher {
     margin: 10px auto 0px auto;
@@ -46,23 +48,125 @@ body {
     height: 36px;
 }
 
-.searecher button[type="submit"]:hover {
-    color: #686868;
+.searcher button[type="submit"]:hover {
+    color: #333;
 }
 
 .fa-search {
     font-size: 16px;
 }
 
-.add-note {
-    display: fixed;
-    top: 20px;
-    right: 30px;
-    z-index: 2;
+.addnote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin: 10px auto 0px auto; */
+    padding: 0;
 }
 
-.formdiv {
+#add-note-btn {
+    margin: 0px 20px 8px auto;
+    height: 36px;
+    padding: 8px 16px 8px 16px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #686868;
+}
+
+#add-note-btn i {
+    margin-right: 5px;
+}
+
+#add-note-btn:hover {
+    color: #333;
+}
+
+#new-note-form {
     padding: 25px;
-    border-radius: 5px;
     background-color: #ce9d0a;
+    border-radius: 0 0 5px 5px;
+}
+
+.new-note-label{
+    vertical-align: top;
+    width: 60px;
+    display: inline-block;
+}
+
+#title{
+    width: 80%;
+    border-radius: 5px;
+    border: none;
+}
+
+#content{
+    width: 80%;
+    border-radius: 5px;
+    border: none;
+}
+
+#title:focus,
+#title:active, 
+#content:focus,
+#content:active {
+  border: none; 
+  box-shadow: none;
+  outline: none;
+}
+
+#new-note-submit-button {
+    float: right;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #1a1a1a;
+}
+
+#backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s ease-out;
+}
+
+#backdrop.opened {
+    opacity: 0.8;
+    pointer-events: all;
+}
+
+#modal {
+    position: fixed;
+    top: 10vh;
+    left: 25%;
+    width: 50%;
+    z-index: 100;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.56);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+}
+
+#modal.opened {
+    opacity: 1;
+    pointer-events: all;
+    top: 15vh;
+}
+
+#modal header {
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
 }

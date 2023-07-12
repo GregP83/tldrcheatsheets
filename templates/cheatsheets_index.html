@@ -17,11 +17,12 @@
         </button>
       </form>
     </div>
-    <!-- <div class="add-new">
-      <button>
-        <i class="fas fa-search"></i>
+    <div class="add-note">
+      <button id="add-note-btn">
+        <!-- <i class="fa-regular fa-message-plus"></i> -->
+        <i class="fa-solid fa-square-plus"></i>Add new
       </button>
-    </div> -->
+    </div>
   </header>
   <br/><br/><br/>
   <gp-postit-note degrees="-2" title="Welcome!!!" style="margin-left:100px">
@@ -38,14 +39,35 @@
   </gp-postit-note>
   <br/><br/>{{content | safe}}
   <br/><br/>
-  <div class="formdiv">
-    <form method="POST">
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title"><br><br>
-      <label for="content">Content:</label>
-      <textarea id="content" name="content" rows="4" cols="30"></textarea><br><br>
-      <input type="submit" value="Submit">
-    </form>
+  <div id="backdrop"></div>
+  <div id="modal">
+    <header>
+      <slot name="title">Add new cheatsheet:</slot>
+    </header>
+    <section id="main">
+      <div id="new-note-form">
+        <form method="POST">
+          <label class="new-note-label" for="title">Title:</label>
+          <input type="text" id="title" name="title"><br><br>
+          <label class="new-note-label" for="content">Content:</label>
+          <textarea id="content" name="content" rows="4" cols="30"></textarea><br><br>
+          <input id="new-note-submit-button" type="submit" value="Submit">
+        </form>
+      </div>
+    </section>
   </div>
+  <script>
+    const showModalButton = document.getElementById('add-note-btn');
+    const backdrop = document.getElementById('backdrop');
+    const modal = document.getElementById('modal');
+    showModalButton.addEventListener('click', () => {
+      backdrop.classList.add('opened');
+      modal.classList.add('opened');
+    });
+    backdrop.addEventListener('click', () => {
+      backdrop.classList.remove('opened');
+      modal.classList.remove('opened');
+    });
+  </script>
 </body>
 </html>
