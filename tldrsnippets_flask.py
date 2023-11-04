@@ -25,6 +25,16 @@ def get_snippets(searchQuery):
 def add_snippet(title, content):
     conn = sqlite3.connect('static/snippets.db') 
     cursor = conn.cursor()
+
+    # Check if the snippet already exists
+    query = "SELECT COUNT(*) FROM snippets WHERE title = ? AND content = ?"
+    values = (title, content)
+    cursor.execute(query, values)
+    count = cursor.fetchone()[0]
+
+    if count > 0:
+        return
+
     query = "INSERT INTO snippets (title, content) VALUES (?, ?)"
     values = (title, content)
     cursor.execute(query, values)
