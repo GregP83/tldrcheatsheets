@@ -2,6 +2,7 @@ html,
 body {
     margin: 0;
     height: 100%;
+    background-color: #1E1E1E;
 }
 
 .main-header {
@@ -13,7 +14,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(50, 50, 50, 0.95);
   }
 
 .searcher {
@@ -169,4 +170,16 @@ body {
 #modal header {
     padding: 1rem;
     border-bottom: 1px solid #ccc;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 100%;
+}
+
+
+.item {
+    flex: 1;
 }

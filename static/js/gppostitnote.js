@@ -8,21 +8,15 @@ class GpPostitNote extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.isOpen = false;
     this.shadowRoot.innerHTML = `
-      <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Roboto+Mono&display=swap" rel="stylesheet">
           <style>
             :host {
               display: inline-block;
             }
             
-            .rotate {
-              transform: rotate(var(--rotation-deg));
-              -webkit-transform: rotate(var(--rotation-deg));
-              -moz-transform: rotate(var(--rotation-deg));
-              -o-transform: rotate(var(--rotation-deg));
-            }
             .postit {
               line-height: 1;
-              text-align:center;     
+                 
               width: 475px;    
               margin: 25px;    
               min-height:150px;
@@ -33,8 +27,7 @@ class GpPostitNote extends HTMLElement {
               padding-right:15px;
               position:relative;   
               border:1px solid #E8E8E8;  
-              border-top:60px solid #fdfd86;
-              font-family: 'Patrick Hand', cursive;
+              font-family: 'Roboto Mono', monospace;
               font-size:26px;      
               border-bottom-right-radius: 60px 5px;
               display:inline-block;    
@@ -65,27 +58,27 @@ class GpPostitNote extends HTMLElement {
             }
             .title {
               font-weight: bold;
-              margin-top: -45px;
+              margin-top: 20px;
+              text-align:center;  
+            }
+            #main {
+              margin-top: 25px;
             }
           </style>
-          <div class="rotate">
-              <div class="postit">
-                  <header class="title">
-                    <b>${this.getAttribute('title')}</b>
-                  </header>
-                  <section id="main">
-                      <slot>default message</slot>
-                  </section>        
-              </div>
+
+          <div class="postit">
+              <header class="title">
+                <b>${this.getAttribute('title')}</b>
+              </header>
+              <section id="main">
+                  <slot>default message</slot>
+              </section>        
           </div>
       `;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'degrees') {
-      const postitElement = this.shadowRoot.querySelector('.rotate');
-      postitElement.style.setProperty('--rotation-deg', newValue + 'deg');
-    } else if (name === 'title') {
+    if (name === 'title') {
       const titleElement = this.shadowRoot.querySelector('.title b');
       titleElement.textContent = newValue || '';
     }
