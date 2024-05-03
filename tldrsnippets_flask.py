@@ -84,6 +84,8 @@ def index():
     search = ""
     if request.method == 'GET':
         search = request.args.get('search')
+        if search is None:
+            search = ''
     if request.method == 'POST':
         title = request.form.get('title')
         content = request.form.get('content')
@@ -91,6 +93,7 @@ def index():
             add_snippet(title, content)
         
     snippets_html = get_snippets(search)
+    print(search)
     return render_template("snippets_index.html", content=snippets_html, search = search)
 
 app.run(host="0.0.0.0", port=8080)
