@@ -14,7 +14,7 @@ def get_snippets(searchQuery):
     if searchQuery:
         query += " WHERE title LIKE ? OR content LIKE ?"
         values = ('%' + searchQuery + '%', '%' + searchQuery + '%')
-    query += " LIMIT 100"
+    query += " LIMIT 20"
     cursor.execute(query, values)
     rows = cursor.fetchall()
     for row in rows:
